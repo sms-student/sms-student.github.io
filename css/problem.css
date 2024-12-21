@@ -1,0 +1,57 @@
+.on-center {
+    text-align: center;
+}
+
+.on-left {
+    text-align: left;
+}
+
+.problem-table > thead > tr > th,
+.problem-table > tbody > tr > th {
+    padding: .92857143em .78571429em;
+}
+
+.problem-table {
+    width: 100%;
+    border-spacing: 0px;
+}
+
+td.up, th.up {
+    border-bottom: 1px solid rgba(34, 36, 38, .15);
+}
+
+.state {
+    width: 10%;
+}
+
+.number {
+    width: 10%;
+}
+
+.diff {
+    width: 20%;
+}
+
+body {
+    font-family: "Lato", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Droid Sans Fallback", sans-serif;
+    font-size: 1em;
+}
+
+.accepted-color {
+    color: #25ad40;
+}
+
+.wrong-color {
+    color: #ff4f4f;
+}
+
+.href {
+    color: blue;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    transition-delay: 0.1s;
+}
+
+a.href:hover {
+    color: #25ad40;
+}

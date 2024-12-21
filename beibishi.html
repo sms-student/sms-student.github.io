@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+
+<title> 背生物！ - 生物练习 </title>
+
+<link rel="icon" type="image/png" href="/images/anyduck-256px.png" />
+
+<script src="/libs/js/jquery-3.2.1.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/libs/css/bootstrap.min.css" />
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/libs/js/bootstrap.min.js"></script>
+
+<!-- <link rel="stylesheet" type="text/css" href="/css/main.css" /> -->
+<!-- <link rel="stylesheet" href="/css/non-responsive.css" type="text/css" /> -->
+<link rel="stylesheet" type="text/css" href="/css/custom.css">
+<link rel="stylesheet" type="text/css" href="/css/custom2.css">
+<link rel="stylesheet" href="/css/icon/iconfont.css">
+
+<script src="/js/md5.js"></script>
+<script src="/js/judgeduck.js?v=20190716"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        tex2jax: {
+            inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]],
+            processEscapes:true
+        },
+        menuSettings: {
+            zoom: "Hover"
+        }
+    });
+</script>
+
+<style>
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script src="./css/icon/iconfont.js"></script>
+
+</head>
+
+<body onload="">
+<i class="iconfont icon-zhifeiji" style="color: red"></i>
+
+<div id="main_div" class="container" style="padding-left: 25px; padding-right: 25px">
+    <style type="text/css">
+        .large-text {
+            font-size: 50px;
+        }
+        .has-margin {
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .has-padding {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .has-checked {
+            border: dashed #888 10px;
+        }
+    </style>
+
+    <div class="row has-margin">
+        <div class="col-xs-12 text-center has-padding" style="border: solid green 1px">
+            <p class="large-text" id="problem_text"> </p>
+        </div>
+    </div>
+    <div class="row has-margin">
+        <input type="text" class="col-xs-12 alert alert-success text-center has-padding" id="option_write" style="font-size: 70px;">
+            <p class="large-text" id="option_write"> </p>
+        </input>
+    </div>
+    <div class="row has-margin">
+        <div class="col-xs-12 alert alert-success text-center has-padding option" id="option_div_1">
+            <p class="large-text" id="option_text_1"> </p>
+        </div>
+    </div>
+    <div class="row has-margin">
+        <div class="col-xs-12 alert alert-info text-center has-padding option" id="option_div_2">
+            <p class="large-text" id="option_text_2"> </p>
+        </div>
+    </div>
+    <div class="row has-margin">
+        <div class="col-xs-12 alert alert-warning text-center has-padding option" id="option_div_3">
+            <p class="large-text" id="option_text_3"> </p>
+        </div>
+    </div>
+    <div class="row has-margin">
+        <div class="col-xs-12 alert alert-danger text-center has-padding option" id="option_div_4">
+            <p class="large-text" id="option_text_4"> </p>
+        </div>
+    </div>
+
+    <div class="row has-margin" style="display:none;" id="submit_div">
+        <div class="col-xs-12 text-center has-padding">
+            <button class="btn btn-submit" id="submit_button">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-zhifeiji"></use>
+                </svg>
+                提交
+            </button>
+        </div>
+    </div>
+
+    <script src="/js/beibishi.js?v=20210724-2"></script>
+
+    <hr />
+
+    <hr />
+</div>
+
+</body>
+
+</html>

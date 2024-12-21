@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> 20241128 T3 </title>
+        <link rel="icon" type="image/png" href="/DE_aemmprty/ProblemMachine/images/anyduck-256px.png" />
+        <script src="../../libs/js/jquery-3.2.1.min.js"></script>
+        <script src="../../js/md5.js"></script>
+
+
+        <!-- custom css begin -->
+        <link rel="stylesheet" type="text/css" href="../../css/improve.css">
+        <link rel="stylesheet" type="text/css" href="../../css/custom.css">
+        <link rel="stylesheet" href="/DE_aemmprty/ProblemMachine/css/todo_icon/iconfont.css">
+        <style>
+        .icon {
+          width: 1em;
+          height: 1em;
+          vertical-align: -0.15em;
+          fill: currentColor;
+          overflow: hidden;
+        }
+        </style>
+        <script src="../../css/todo_icon/iconfont.js"></script>
+        <script src="../../js/countdown.js" defer></script>
+        <script src="../../js/file.js" defer></script>
+        <!-- custom css end -->
+
+
+        <!-- Latex-Begin -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                  // customised options
+                  // • auto-render specific keys, e.g.:
+                  delimiters: [
+                      {left: '$$', right: '$$', display: true},
+                      {left: '$', right: '$', display: false},
+                      {left: '\\(', right: '\\)', display: false},
+                      {left: '\\[', right: '\\]', display: true}
+                  ],
+                  // • rendering keys, e.g.:
+                  throwOnError : false
+                });
+            });
+        </script>
+        <!-- Latex-End -->
+
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                showProcessingMessages: false,
+                tex2jax: {
+                    inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]],
+                    processEscapes:true
+                },
+                menuSettings: {
+                    zoom: "Hover"
+                }
+            });
+        </script>
+    </head>
+    <body onload="">
+        <la-tex>
+
+首先考虑只有一个  $ v_{i} $  非0的情况，可以发现有如下结论：对于一个数i，在若干次操作后，对于每一对  $ x, y $ ，所有满足在i为1的位上1的个数为x，在i为0的位上1的个数为y的数，i变为它们中的任意一个的概率是相同的。
+<br>
+这个结论在  $ m=0 $  时显然成立，且如果结论对于  $ m=i $  成立，容易推出结论对于  $ m=i+1 $  成立，因此结论对于所有m都成立。
+<br>
+考虑dp，设  $ dp_{t,j,k} $  表示操作t次后，变为在i为1的位上1的个数为j，在i为0的位上1的个数为k的数的概率，这样的状态数是  $ O(k^2) $  的，可以  $ O(k^4) $  枚举所有情况。得到转移方程，然后矩阵快速幂得到m次之后的情况。
+<br>
+对于一般的情况，可以发现bitcount相同的数的dp是一样的。枚举bitcount(i)，对于每一种做一遍矩阵快速幂，就可以得到对于每一个数i，以及每一对  $ x, y, i $  变为一个满足在i为1的位上1的个数为x，在i为0的位上1的个数为y的数的概率。这部分的复杂度是常数极其小的  $ O(n^7 \log m) $ 。
+<br>
+接下来考虑算出期望，对于一对  $ i, x, y $ ，设bitcount  $ (i) = ct $ ，它会贡献到的数是所有将i二进制表示中y个位从0变成1，将  $ ct-x $  个位从1变成0（一位只能操作一次），可以得到的所有数，称i变为一个满足在i为1的位上1的个数为x，在i为0的位上1的个数为y的数的概率为  $ (i, y, ct-x) $  的贡献。
+<br>
+考虑一位一位的dp，设  $ f_{i,s,j,k} $  表示当前考虑了前  $ i-1 $  位的变化，当前的数是s，还需要将j个位从0变成1，将k个位从1变成0，所有能转移到这个状态的  $ (i, x, y) $  的贡献和。可以发现答案就是
+<br>
+
+ $$ f_{n+1,0,0,0}, \ldots, f_{j+1,2^n-1,0,0} $$
+<br>
+初值  $ f_{0,s,j,k} $  即为  $ (s, k, \text{bitcount}(s)-j) $  的贡献。考虑第i位的转移如果s的二进制第i位为1，则有
+
+<br>
+ $$ f_{i+1,s,j,k} = f_{i,s,j,k} + f_{i,s-2^i,j+1,k} $$
+<br>
+否则，有
+<br>
+
+ $$ f_{i+1,s,j,k} = f_{i,s,j,k} + f_{i,s+2^i,j,k+1} $$
+<br>
+可以发现，对每一个idp时，只有  $ s, s \oplus 2^i $  两个位置会互相影响，因此数组可以只开后三维，每次对于互相影响的两个位置直接计算新的f。复杂度  $ O(n^3 2^n) $ ，如果只计算有用的状态  $ (j+k \leq n-i) $ ，有一个较小的常数。总复杂度  $ O(n^7 \log m + n^3 2^n) $ 。
+
+        </la-tex>
+    </body>
+</html>

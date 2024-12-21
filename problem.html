@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Homepage - 我的主页 </title>
+        <link rel="icon" type="image/png" href="/DE_aemmprty/ProblemMachine/images/anyduck-256px.png" />
+        <script src="./libs/js/jquery-3.2.1.min.js"></script>
+        <script src="./js/md5.js"></script>
+
+
+        <!-- custom css begin -->
+        <link rel="stylesheet" type="text/css" href="./css/problem.css">
+        <link rel="stylesheet" href="/DE_aemmprty/ProblemMachine/css/todo_icon/iconfont.css">
+        <style>
+        .icon {
+          width: 1em;
+          height: 1em;
+          vertical-align: -0.15em;
+          fill: currentColor;
+          overflow: hidden;
+        }
+        </style>
+        <script src="./css/todo_icon/iconfont.js"></script>
+        <script src="./js/problem.js"></script>
+        <!-- custom css end -->
+
+
+        <!-- Latex-Begin -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                  // customised options
+                  // • auto-render specific keys, e.g.:
+                  delimiters: [
+                      {left: '$$', right: '$$', display: true},
+                      {left: '$', right: '$', display: false},
+                      {left: '\\(', right: '\\)', display: false},
+                      {left: '\\[', right: '\\]', display: true}
+                  ],
+                  // • rendering keys, e.g.:
+                  throwOnError : false
+                });
+            });
+        </script>
+        <!-- Latex-End -->
+
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                showProcessingMessages: false,
+                tex2jax: {
+                    inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]],
+                    processEscapes:true
+                },
+                menuSettings: {
+                    zoom: "Hover"
+                }
+            });
+        </script>
+    </head>
+    <body onload="">
+        <table class = "problem-table">
+          <thead>
+            <tr class = "problem-head table-line">
+              <th class = "on-center up state">状态</th>
+              <th class = "on-center up number">#</th>
+              <th class = "on-left up">题目</th>
+              <th class = "on-center up diff">个人难度</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class = "table-line">
+              <td class = "on-center up">
+                <p class = "accepted-color">
+                    <svg class="icon" aria-hidden="true">
+                      <use xlink:href="#icon-zhengque"></use>
+                    </svg>
+                    Accepted
+                </p>
+              </td>
+              <td class = "on-center up"><la-tex>$1$</la-tex></td>
+              <td class = "on-left up">
+                <a href = "https://atcoder.jp/contests/arc188/tasks/arc188_a" class = "href">
+                    AT_arc188_a
+                </a>
+              </td>
+              <td class = "on-center up"><la-tex>$DP$</la-tex></td>
+            </tr>
+            <tr class = "table-line">
+              <td class = "on-center up">
+                <p class = "wrong-color">
+                    <svg class="icon" aria-hidden="true">
+                      <use xlink:href="#icon-cuowu"></use>
+                    </svg>
+                    Wrong
+                </p>
+              </td>
+              <td class = "on-center up"><la-tex>$2$</la-tex></td>
+              <td class = "on-left up">
+                <a href = "https://atcoder.jp/contests/arc188/tasks/arc188_c" class = "href">
+                    AT_arc188_c
+                </a>
+              </td>
+              <td class = "on-center up"><la-tex>$Math$</la-tex></td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <input type = "text" class = "password" name = "密码："> -->
+    </body>
+</html>
